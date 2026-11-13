@@ -83,28 +83,18 @@ To identify differentially expressed probes and explore biological processes ass
 
 
 | Attribute | Description |
-
 |---|---|
-
 | Dataset ID | GSE38642 |
-
 | Source | NCBI Gene Expression Omnibus (GEO) |
-
 | Platform | GPL6244 |
-
 | Platform technology | Affymetrix Human Gene 1.0 ST |
-
 | Organism | Homo sapiens |
-
 | Tissue | Pancreatic islets |
-
 | Total samples | 63 |
-
 | Non-diabetic samples | 54 |
-
 | T2D samples | 9 |
-
 | Expression probes | 18,808 |
+
 
 
 
@@ -181,30 +171,19 @@ The following R packages were used:
 
 
 | Package | Purpose |
-
 |---|---|
-
 | GEOquery | Download and access GEO datasets |
-
 | limma | Differential gene expression analysis |
-
 | tidyverse | Data manipulation |
-
 | ggplot2 | Data visualization |
-
 | dplyr | Data filtering and manipulation |
-
 | clusterProfiler | GO enrichment and GSEA |
-
 | org.Hs.eg.db | Human gene annotation |
-
 | AnnotationDbi | Gene identifier annotation |
-
 | enrichplot | Enrichment visualization |
-
 | gridExtra | Plot arrangement |
-
 | stringr | Text processing |
+
 
 
 
@@ -257,20 +236,14 @@ The expression values had the following summary:
 
 
 | Statistic | Expression value |
-
 |---|---:|
-
 | Minimum | 1.410 |
-
 | First quartile | 5.250 |
-
 | Median | 6.630 |
-
 | Mean | 6.591 |
-
 | Third quartile | 7.900 |
-
 | Maximum | 14.070 |
+
 
 
 
@@ -376,6 +349,7 @@ The differential expression results were saved in:
 | --- | --- | --- | --- | --- | --- | --- |
 | 8072314 | 0.33851851851852 | 5.59206349206349 | 5.18632831107516 | 2.26298922505407e-06 | 0.0425623013448169 | Not Significant |
 
+
 ### 4.6 Probe Annotation
 
 
@@ -401,6 +375,7 @@ The annotated results were saved in the following CSV table. Click the link to o
 | Probe_ID | logFC | adj.P.Val | GB_LIST | SPOT_ID |
 | --- | --- | --- | --- | --- |
 | 8072314 | 0.33851851851852 | 0.0425623013448169 | BC008289 | chr22:30641984-30642907 |
+
 
 
 
@@ -464,6 +439,7 @@ The results were saved in the following CSV table. Click the link to open all 5,
 
 
 
+
 The top enriched pathways were visualized using a GSEA dot plot.
 
 
@@ -513,14 +489,11 @@ The PCA analysis showed:
 
 
 | Component | Variance explained |
-
 |---|---:|
-
 | PC1 | 19.43% |
-
 | PC2 | 12.94% |
-
 | Combined | 32.37% |
+
 
 
 
@@ -541,6 +514,7 @@ The PCA plot provides an overview of variation among the samples. Any separation
 | GSM946708 | -13.5139663604751 | -5.63455067116178 | Non-diabetic |
 | GSM946709 | -2.47485386593821 | -16.3812968596366 | Non-diabetic |
 
+
 [Open all 63 PCA sample results](results/tables/PCA_results.csv)
 
 The full sample-level PCA coordinates are available in [PCA_results.csv](results/tables/PCA_results.csv). The table below previews the first 10 samples:
@@ -560,6 +534,7 @@ The full sample-level PCA coordinates are available in [PCA_results.csv](results
 
 
 
+
 ### 5.3 Differential Expression Results
 
 
@@ -575,25 +550,20 @@ The limma analysis identified one probe with an adjusted p-value below 0.05.
 | Upregulated | 0 |
 | Downregulated | 0 |
 
+
 [Open the significance summary CSV](results/tables/significance_summary.csv)
 
 
 
 | Attribute | Result |
-
 |---|---:|
-
 | Probe ID | 8072314 |
-
 | logFC | +0.3385185 |
-
 | Average expression | 5.592063 |
-
 | Moderated t-statistic | 5.186328 |
-
 | P-value | 2.262989 × 10⁻⁶ |
-
 | Adjusted p-value | 0.04256230 |
+
 
 
 
@@ -630,14 +600,11 @@ The final GSEA analysis identified:
 
 
 | Measurement | Result |
-
 |---|---:|
-
 | Total GO Biological Process pathways | 5,688 |
-
 | Significant pathways | 1,245 |
-
 | Significance threshold | Adjusted p-value < 0.05 |
+
 
 
 
@@ -646,30 +613,19 @@ The top enriched pathways included:
 
 
 | Biological process | NES | Adjusted p-value |
-
 |---|---:|---:|
-
 | Ribosome biogenesis | +2.740777 | 4.058370 × 10⁻²³ |
-
 | Ribonucleoprotein complex biogenesis | +2.456587 | 5.004074 × 10⁻²² |
-
 | Cytokine-mediated signaling pathway | +2.329272 | 1.896924 × 10⁻¹⁸ |
-
 | rRNA metabolic process | +2.521812 | 2.110423 × 10⁻¹⁷ |
-
 | rRNA processing | +2.671105 | 2.515669 × 10⁻¹⁷ |
-
 | Leukocyte migration | +2.369509 | 5.503574 × 10⁻¹⁵ |
-
 | Ribosomal small subunit biogenesis | +2.864217 | 1.877398 × 10⁻¹³ |
-
 | Maturation of SSU-rRNA | +2.969289 | 1.301512 × 10⁻¹² |
-
 | Cell chemotaxis | +2.280963 | 3.312729 × 10⁻¹² |
-
 | Humoral immune response | +2.330788 | 4.647546 × 10⁻¹² |
-
 | Respiratory electron transport chain | -2.560463 | 1.722223 × 10⁻¹⁰ |
+
 
 
 
@@ -720,6 +676,7 @@ The tables below are stored as CSV files in the repository. Click a table name t
 | [GO GSEA final results](results/tables/GO_GSEA_final_results.csv) | Complete GO Biological Process GSEA output | 5,688 |
 | [GO GSEA results](results/tables/GO_GSEA_results.csv) | GO GSEA output | 5,688 |
 | [Top 15 GO pathways](results/tables/Top_15_GO_pathways.csv) | Top enriched pathways | 15 |
+
 
 ## 6. Discussion
 
