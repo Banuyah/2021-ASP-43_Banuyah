@@ -1,0 +1,10 @@
+# R session and IDE files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj.user
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

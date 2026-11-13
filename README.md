@@ -367,7 +367,19 @@ Overall, the results provide an exploratory overview of gene-expression differen
 The project files are organized as follows:
 
 ```text
-Bioinformatics-ICA3/
+2021-ASP-43_Banuyah/
+│
+├── code/
+│   ├── 02_data_inspection.R
+│   ├── 03_sample_grouping_PCA.R
+│   ├── 04_differential_gene_expression.R
+│   ├── 05_significant_gene_summary.R
+│   ├── 06_gene_annotation.R
+│   ├── 07_probe_annotation.R
+│   ├── 08_heatmap.R
+│   ├── ranked_genes_for_GSEA.R
+│   ├── GSEA_DOT_PLOT.R
+│   └── supporting annotation and GSEA scripts
 │
 ├── data/
 │   ├── GSE38642_expression_set.rds
@@ -404,7 +416,28 @@ Bioinformatics-ICA3/
 
 ---
 
-## 10. References
+## 10. Reproducibility and How to Run the Analysis
+
+Run the scripts from the repository root directory in RStudio so that the relative paths (`data/`, `results/`) resolve correctly. Install the required CRAN and Bioconductor packages before running the workflow. The analysis scripts are kept in the `code/` directory, while input data and generated outputs remain at the repository root.
+
+Recommended execution order (run in the same R session where later scripts depend on objects created earlier):
+
+1. `code/02_data_inspection.R` – inspect the expression matrix and generate the expression distribution plot.
+2. `code/03_sample_grouping_PCA.R` – define sample groups, save processed metadata, and generate PCA results.
+3. `code/04_differential_gene_expression.R` – run limma and save differential-expression results.
+4. `code/05_significant_gene_summary.R` – summarize significant probes.
+5. `code/06_gene_annotation.R`, followed by `code/07_probe_annotation.R` – retrieve and apply platform annotation.
+6. `code/EXTRACT_GENE_IDS.R`, then `code/ranked_genes_for_GSEA.R` – extract and rank mapped Entrez identifiers.
+7. `code/GSEA_DOT_PLOT.R` – run the final GO GSEA and create the final enrichment outputs.
+8. `code/final_outcome.R` – create the final pathway table and dot plot after the GSEA objects have been created.
+
+Some supplementary scripts are exploratory and depend on objects created in earlier scripts; they are not intended to be run independently in a fresh R session. GEO platform retrieval and Bioconductor annotation may require an internet connection.
+
+The repository includes precomputed result files so that readers can inspect the reported outputs without rerunning the analysis. The analysis was not executed in a clean R environment as part of this packaging step; therefore, run the workflow in RStudio and check that the regenerated tables and figures match the committed results before submission.
+
+---
+
+## 11. References
 
 1. Edgar, R., Domrachev, M., and Lash, A. E. (2002). Gene Expression Omnibus: NCBI gene expression and hybridization array data repository. *Nucleic Acids Research*, 30(1), 207–210. https://doi.org/10.1093/nar/30.1.207
 
@@ -420,5 +453,4 @@ Bioinformatics-ICA3/
 
 ---
 
-**Note:** All reported numerical results are based on the analysis outputs obtained in this project. The interpretation of pathway enrichment is exploratory and should be supported by careful review of gene identifier mapping and the original dataset metadata.#   2 0 2 1 - A S P - 4 3 _ B a n u y a h  
- 
+**Note:** All reported numerical results are based on the analysis outputs obtained in this project. The interpretation of pathway enrichment is exploratory and should be supported by careful review of gene identifier mapping and the original dataset metadata.
