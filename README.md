@@ -310,7 +310,7 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 **Figure 3: Final GO Biological Process GSEA dot plot**
 
-File: `results/figures/GO_GSEA_final_dotplot.png`
+![Figure 3: Final GO Biological Process GSEA dot plot](results/figures/GO_GSEA_final_dotplot.png)
 
 **Figure 4: Oxidative phosphorylation GSEA enrichment plot**
 
