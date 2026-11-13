@@ -88,6 +88,19 @@
       <p class="muted">Probe-level result from the supplied limma output. Confirm gene-level annotation before assigning a gene name or biological interpretation.</p>
     </div>
   </div>
+
+  <div class="results-photo-gallery">
+    <div class="photo-heading"><div class="card-kicker">RESULTS AS FIGURES</div><h3>Analysis outputs</h3><p>These figures are displayed directly on this page, not just provided as external links.</p></div>
+    <div class="photo-grid">
+      <figure><img src="assets/PCA_plot.png" alt="PCA results figure"><figcaption><b>Principal Component Analysis</b><span>Sample-level expression variation</span></figcaption></figure>
+      <figure><img src="assets/improved_volcano_plot.png" alt="Differential expression volcano plot"><figcaption><b>Differential Expression</b><span>Volcano plot of log fold change and adjusted p-value</span></figcaption></figure>
+      <figure><img src="assets/GO_GSEA_final_dotplot.png" alt="GO biological process GSEA results"><figcaption><b>GO Biological Process GSEA</b><span>Enriched biological processes</span></figcaption></figure>
+      <figure><img src="assets/GO_GSEA_dotplot_improved.png" alt="Improved GO GSEA dot plot"><figcaption><b>GO Enrichment Dot Plot</b><span>Enrichment score and adjusted significance</span></figcaption></figure>
+      <figure><img src="assets/oxidative_phosphorylation_GSEA.png" alt="Oxidative phosphorylation pathway enrichment plot"><figcaption><b>Oxidative Phosphorylation</b><span>Individual pathway enrichment plot</span></figcaption></figure>
+      <figure><img src="assets/expression_boxplot.png" alt="Expression distribution boxplot"><figcaption><b>Expression Distribution</b><span>Expression values across samples</span></figcaption></figure>
+    </div>
+  </div>
+
   <div class="pathway-panel">
     <div class="panel-heading"><div><div class="card-kicker">GENE ONTOLOGY · BIOLOGICAL PROCESS</div><h3>Top enriched pathways</h3></div><a href="downloads/Top_15_GO_pathways.csv" download>Download top 15 ↗</a></div>
     <div id="pathway-list" class="pathway-list">
@@ -105,7 +118,6 @@
     <figure class="figure-card wide"><a href="assets/PCA_plot.png" target="_blank"><img src="assets/PCA_plot.png" alt="Principal component analysis scatter plot"></a><figcaption><b>01 / Principal component analysis</b><span>Sample-level variation across the first two principal components.</span></figcaption></figure>
     <figure class="figure-card"><a href="assets/expression_boxplot.png" target="_blank"><img src="assets/expression_boxplot.png" alt="Expression distribution boxplot"></a><figcaption><b>02 / Expression distribution</b><span>Expression-value distribution across samples.</span></figcaption></figure>
     <figure class="figure-card"><a href="assets/improved_volcano_plot.png" target="_blank"><img src="assets/improved_volcano_plot.png" alt="Volcano plot"></a><figcaption><b>03 / Volcano plot</b><span>Effect size versus statistical evidence.</span></figcaption></figure>
-    <figure class="figure-card"><a href="assets/gene_expression_heatmap.png" target="_blank"><img src="assets/gene_expression_heatmap.png" alt="Gene expression heatmap"></a><figcaption><b>04 / Expression heatmap</b><span>Relative expression patterns for selected top probes.</span></figcaption></figure>
     <figure class="figure-card wide"><a href="assets/GO_GSEA_final_dotplot.png" target="_blank"><img src="assets/GO_GSEA_final_dotplot.png" alt="GO GSEA dot plot"></a><figcaption><b>05 / GO Biological Process GSEA</b><span>Top enriched biological processes from the ranked gene list.</span></figcaption></figure>
   </div>
 </section>
