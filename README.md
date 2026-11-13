@@ -454,3 +454,6 @@ The repository includes precomputed result files so that readers can inspect the
 ---
 
 **Note:** All reported numerical results are based on the analysis outputs obtained in this project. The interpretation of pathway enrichment is exploratory and should be supported by careful review of gene identifier mapping and the original dataset metadata.
+## Project Website
+
+A static website presenting the project overview, workflow, results, visualizations, and downloadable tables is available in the `docs/` folder. To publish it, follow [`docs/PUBLISH.md`](docs/PUBLISH.md) and select **main /docs** in GitHub Pages settings.

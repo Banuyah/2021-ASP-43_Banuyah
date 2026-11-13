@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bioinformatics project exploring differential gene expression and biological pathways in Type 2 Diabetes using pancreatic islet data.">
+  <title>Pancreatic Islet Gene Expression | T2D Bioinformatics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home"><span class="brand-mark">B</span><span>Bioinformatics <small>RESEARCH PROJECT</small></span></a>
+  <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav id="nav">
+    <a href="#overview">Overview</a><a href="#method">Methodology</a><a href="#results">Results</a><a href="#figures">Visualizations</a><a href="#resources">Resources</a>
+  </nav>
+  <a class="nav-cta" href="https://github.com/Banuyah/2021-ASP-43_Banuyah" target="_blank" rel="noreferrer">View GitHub ↗</a>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow"><span></span> COMPUTATIONAL BIOLOGY · ICA PROJECT</div>
+      <h1>Exploring the molecular signals of <em>Type 2 Diabetes.</em></h1>
+      <p class="hero-lead">Differential gene expression and functional enrichment analysis of human pancreatic islet gene expression data.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#results">Explore findings <span>↓</span></a>
+        <a class="button secondary" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642" target="_blank" rel="noreferrer">Open GEO dataset ↗</a>
+      </div>
+      <div class="hero-meta"><span>DATASET <b>GSE38642</b></span><span>ORGANISM <b>Homo sapiens</b></span><span>PLATFORM <b>GPL6244</b></span></div>
+    </div>
+    <div class="hero-art" aria-label="Abstract scientific molecular visualization">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+      <div class="core"><div class="core-inner">RNA<br><small>EXPRESSION</small></div></div>
+      <span class="node node-a">T2D</span><span class="node node-b">BP</span><span class="node node-c">RNA</span><span class="node node-d">GEO</span>
+      <div class="art-caption">FROM EXPRESSION DATA TO BIOLOGICAL INSIGHT</div>
+    </div>
+  </div>
+  <div class="hero-bottom"><span>01 / PROJECT OVERVIEW</span><span>SCROLL TO EXPLORE ↓</span></div>
+</section>
+
+<section class="section intro" id="overview">
+  <div class="section-heading"><div class="eyebrow">01 — THE STUDY</div><h2>Understanding gene activity<br><em>in pancreatic islets.</em></h2></div>
+  <div class="intro-text">
+    <p>Type 2 Diabetes (T2D) is a metabolic condition involving impaired blood-glucose regulation. Pancreatic islets contain insulin-producing cells and are central to glucose homeostasis.</p>
+    <p>This project uses a public gene-expression dataset to compare pancreatic islet samples from donors with T2D and non-diabetic donors. Statistical analysis and pathway enrichment are used to explore patterns that may be associated with the disease.</p>
+    <div class="note"><b>Research aim</b><span>Identify differentially expressed probes and explore biological processes associated with T2D using pancreatic islet expression data.</span></div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="stat"><strong>63</strong><span>HUMAN DONOR SAMPLES</span><small>9 T2D · 54 non-diabetic</small></div>
+  <div class="stat"><strong>18,808</strong><span>EXPRESSION PROBES</span><small>GPL6244 platform</small></div>
+  <div class="stat"><strong id="sig-count">1</strong><span>PROBES WITH FDR &lt; 0.05</span><small>Benjamini–Hochberg adjusted</small></div>
+  <div class="stat"><strong>R</strong><span>ANALYSIS ENVIRONMENT</span><small>limma · clusterProfiler</small></div>
+</section>
+
+<section class="section methodology" id="method">
+  <div class="section-heading"><div class="eyebrow">02 — ANALYTICAL WORKFLOW</div><h2>From raw data to<br><em>functional interpretation.</em></h2><p class="section-sub">A reproducible R-based workflow connecting sample-level exploration with gene-level statistics and biological pathways.</p></div>
+  <div class="workflow">
+    <article class="step"><span class="step-no">01</span><div class="step-icon">▤</div><h3>Dataset acquisition</h3><p>Retrieve GSE38642 expression profiles and donor metadata from NCBI GEO.</p><small>GEOquery · ExpressionSet</small></article>
+    <article class="step"><span class="step-no">02</span><div class="step-icon">⌕</div><h3>Inspection &amp; QC</h3><p>Inspect matrix dimensions, sample labels, missing values and expression distributions.</p><small>R · tidyverse · ggplot2</small></article>
+    <article class="step"><span class="step-no">03</span><div class="step-icon">◉</div><h3>Exploratory analysis</h3><p>Use principal component analysis to explore variation across samples.</p><small>prcomp · PCA</small></article>
+    <article class="step"><span class="step-no">04</span><div class="step-icon">⌁</div><h3>Differential expression</h3><p>Fit a limma model for T2D versus control and adjust p-values for multiple testing.</p><small>limma · empirical Bayes</small></article>
+    <article class="step"><span class="step-no">05</span><div class="step-icon">⌘</div><h3>Probe annotation</h3><p>Connect probe identifiers to platform and human gene annotation resources.</p><small>GPL6244 · AnnotationDbi</small></article>
+    <article class="step"><span class="step-no">06</span><div class="step-icon">✳</div><h3>GO GSEA</h3><p>Rank genes by moderated t-statistic and test Gene Ontology Biological Process sets.</p><small>clusterProfiler · org.Hs.eg.db</small></article>
+  </div>
+</section>
+
+<section class="section results" id="results">
+  <div class="section-heading"><div class="eyebrow">03 — KEY RESULTS</div><h2>What the analysis<br><em>reported.</em></h2><p class="section-sub">The values below are loaded from the result tables included with this project.</p></div>
+  <div class="results-grid">
+    <div class="result-card highlight-card">
+      <div class="card-kicker">DIFFERENTIAL EXPRESSION</div>
+      <div class="big-number" id="sig-probes">1</div>
+      <h3>probe with adjusted p-value below 0.05</h3>
+      <p>One probe passed the Benjamini–Hochberg adjusted p-value threshold across 18,808 tested probes. Statistical significance does not by itself establish biological importance.</p>
+      <a href="downloads/differential_expression_results.csv" download>Download full differential expression table ↓</a>
+    </div>
+    <div class="result-card">
+      <div class="card-kicker">TOP REPORTED PROBE</div>
+      <div class="probe-id" id="probe-id">8072314</div>
+      <div class="probe-stats"><div><small>log fold change</small><b id="probe-logfc">0.3385</b></div><div><small>Adjusted p-value</small><b id="probe-pad j">0.0426</b></div></div>
+      <p class="muted">Probe-level result from the supplied limma output. Confirm gene-level annotation before assigning a gene name or biological interpretation.</p>
+    </div>
+  </div>
+  <div class="pathway-panel">
+    <div class="panel-heading"><div><div class="card-kicker">GENE ONTOLOGY · BIOLOGICAL PROCESS</div><h3>Top enriched pathways</h3></div><a href="downloads/Top_15_GO_pathways.csv" download>Download top 15 ↗</a></div>
+    <div id="pathway-list" class="pathway-list">
+      <div class="pathway-row"><span>Ribosome biogenesis</span><div class="bar-track"><i style="width:100%"></i></div><b>2.74</b></div>
+      <div class="pathway-row"><span>Ribonucleoprotein complex biogenesis</span><div class="bar-track"><i style="width:90%"></i></div><b>2.46</b></div>
+      <div class="pathway-row"><span>Cytokine-mediated signaling pathway</span><div class="bar-track"><i style="width:85%"></i></div><b>2.33</b></div>
+    </div>
+    <p class="footnote">Bars represent normalized enrichment score (NES) relative to the highest NES among the displayed pathways. Positive NES indicates enrichment toward the top of the ranked gene list.</p>
+  </div>
+</section>
+
+<section class="section figures" id="figures">
+  <div class="section-heading"><div class="eyebrow">04 — DATA VISUALIZATION</div><h2>Visual evidence for<br><em>each analysis stage.</em></h2></div>
+  <div class="figure-grid">
+    <figure class="figure-card wide"><a href="assets/PCA_plot.png" target="_blank"><img src="assets/PCA_plot.png" alt="Principal component analysis scatter plot"></a><figcaption><b>01 / Principal component analysis</b><span>Sample-level variation across the first two principal components.</span></figcaption></figure>
+    <figure class="figure-card"><a href="assets/expression_boxplot.png" target="_blank"><img src="assets/expression_boxplot.png" alt="Expression distribution boxplot"></a><figcaption><b>02 / Expression distribution</b><span>Expression-value distribution across samples.</span></figcaption></figure>
+    <figure class="figure-card"><a href="assets/improved_volcano_plot.png" target="_blank"><img src="assets/improved_volcano_plot.png" alt="Volcano plot"></a><figcaption><b>03 / Volcano plot</b><span>Effect size versus statistical evidence.</span></figcaption></figure>
+    <figure class="figure-card"><a href="assets/gene_expression_heatmap.png" target="_blank"><img src="assets/gene_expression_heatmap.png" alt="Gene expression heatmap"></a><figcaption><b>04 / Expression heatmap</b><span>Relative expression patterns for selected top probes.</span></figcaption></figure>
+    <figure class="figure-card wide"><a href="assets/GO_GSEA_final_dotplot.png" target="_blank"><img src="assets/GO_GSEA_final_dotplot.png" alt="GO GSEA dot plot"></a><figcaption><b>05 / GO Biological Process GSEA</b><span>Top enriched biological processes from the ranked gene list.</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="section resources" id="resources">
+  <div class="section-heading"><div class="eyebrow">05 — REPRODUCIBILITY</div><h2>Explore the data<br><em>and project files.</em></h2><p class="section-sub">The website is a static presentation of the R analysis. R scripts must be run in R/RStudio; GitHub Pages does not execute R code.</p></div>
+  <div class="resource-grid">
+    <a class="resource-card" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642" target="_blank" rel="noreferrer"><span>DATA SOURCE ↗</span><h3>NCBI GEO · GSE38642</h3><p>Public pancreatic islet gene expression dataset.</p></a>
+    <a class="resource-card" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6244" target="_blank" rel="noreferrer"><span>MICROARRAY PLATFORM ↗</span><h3>GPL6244</h3><p>Affymetrix Human Gene 1.0 ST platform annotation.</p></a>
+    <a class="resource-card" href="https://github.com/Banuyah/2021-ASP-43_Banuyah/tree/main/code" target="_blank" rel="noreferrer"><span>ANALYSIS CODE ↗</span><h3>R scripts on GitHub</h3><p>Inspect the scripts used for preprocessing, statistics and enrichment.</p></a>
+    <a class="resource-card" href="downloads/GO_GSEA_final_results.csv" download><span>DOWNLOAD ↓</span><h3>Complete GSEA results</h3><p>Download the GO Biological Process enrichment output.</p></a>
+  </div>
+  <div class="caution"><b>Interpretation note</b><p>This is an exploratory analysis of an observational public dataset. The small T2D group (9 samples) and the probe-to-gene annotation process should be considered when interpreting results. Enriched pathways are hypotheses for further investigation, not proof of causation or clinical conclusions.</p></div>
+</section>
+</main>
+<footer><a class="brand" href="#home"><span class="brand-mark">B</span><span>Bioinformatics <small>ICA PROJECT</small></span></a><span>Pancreatic islet gene expression · Type 2 Diabetes</span><a href="https://github.com/Banuyah/2021-ASP-43_Banuyah" target="_blank" rel="noreferrer">GitHub repository ↗</a></footer>
+<script src="data.js"></script><script src="script.js"></script>
+</body>
+</html>
