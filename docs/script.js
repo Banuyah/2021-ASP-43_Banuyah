@@ -9,7 +9,7 @@ if (probes.length) {
   const p = probes[0];
   document.getElementById("probe-id").textContent = p.Probe_ID ?? "—";
   document.getElementById("probe-logfc").textContent = Number(p.logFC).toFixed(4);
-  const padj = document.getElementById("probe-pad j");
+  const padj = document.getElementById("probe-padj");
   if (padj) padj.textContent = Number(p["adj.P.Val"]).toExponential(2);
 }
 const pathways = data.topPathways || [];

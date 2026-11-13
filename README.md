@@ -1,18 +1,18 @@
-**# Bioinformatics Analysis of Type 2 Diabetes Using Pancreatic Islet Gene Expression Data**
+# Bioinformatics Analysis of Type 2 Diabetes Using Pancreatic Islet Gene Expression Data
 
 
 
-**## 1. Title and Abstract**
+## 1. Title and Abstract
 
 
 
-**### Title**
+### Title
 
-**\*\*Differential Gene Expression and Functional Enrichment Analysis of Type 2 Diabetes Using Pancreatic Islet Gene Expression Data\*\***
+**Differential Gene Expression and Functional Enrichment Analysis of Type 2 Diabetes Using Pancreatic Islet Gene Expression Data**
 
 
 
-**### Abstract**
+### Abstract
 
 
 
@@ -20,11 +20,11 @@ This study analyzes gene expression differences between Type 2 Diabetes (T2D) an
 
 
 
-\---
+---
 
 
 
-**## 2. Introduction**
+## 2. Introduction
 
 
 
@@ -36,7 +36,7 @@ Gene expression analysis helps researchers understand how genes behave under dif
 
 
 
-**### Research Problem**
+### Research Problem
 
 
 
@@ -44,7 +44,7 @@ Understanding gene expression differences between T2D and non-diabetic individua
 
 
 
-**### Aim**
+### Aim
 
 
 
@@ -52,63 +52,63 @@ To identify differentially expressed probes and explore biological processes ass
 
 
 
-**### Objectives**
+### Objectives
 
 
 
-1\. Obtain and inspect a public gene expression dataset.
+1. Obtain and inspect a public gene expression dataset.
 
-2\. Perform data quality checks and visualization.
+2. Perform data quality checks and visualization.
 
-3\. Explore sample distribution using PCA.
+3. Explore sample distribution using PCA.
 
-4\. Identify differentially expressed probes using limma.
+4. Identify differentially expressed probes using limma.
 
-5\. Annotate significant probes using platform annotation.
+5. Annotate significant probes using platform annotation.
 
-6\. Identify enriched biological processes using GSEA.
-
-
-
-\---
+6. Identify enriched biological processes using GSEA.
 
 
 
-**## 3. Data Description**
+---
 
 
 
-**### Dataset Information**
+## 3. Data Description
 
 
 
-\| Attribute | Description |
-
-\|---|---|
-
-\| Dataset ID | GSE38642 |
-
-\| Source | NCBI Gene Expression Omnibus (GEO) |
-
-\| Platform | GPL6244 |
-
-\| Platform technology | Affymetrix Human Gene 1.0 ST |
-
-\| Organism | Homo sapiens |
-
-\| Tissue | Pancreatic islets |
-
-\| Total samples | 63 |
-
-\| Non-diabetic samples | 54 |
-
-\| T2D samples | 9 |
-
-\| Expression probes | 18,808 |
+### Dataset Information
 
 
 
-**### Data Source**
+| Attribute | Description |
+
+|---|---|
+
+| Dataset ID | GSE38642 |
+
+| Source | NCBI Gene Expression Omnibus (GEO) |
+
+| Platform | GPL6244 |
+
+| Platform technology | Affymetrix Human Gene 1.0 ST |
+
+| Organism | Homo sapiens |
+
+| Tissue | Pancreatic islets |
+
+| Total samples | 63 |
+
+| Non-diabetic samples | 54 |
+
+| T2D samples | 9 |
+
+| Expression probes | 18,808 |
+
+
+
+### Data Source
 
 
 
@@ -116,15 +116,15 @@ The gene expression dataset was downloaded from the NCBI Gene Expression Omnibus
 
 
 
-Dataset: https\://www\.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642
+Dataset: https\://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642
 
 
 
-Platform: https\://www\.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6244
+Platform: https\://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6244
 
 
 
-**### Data Structure**
+### Data Structure
 
 
 
@@ -132,11 +132,11 @@ The expression matrix contains:
 
 
 
-\- Rows representing probes.
+- Rows representing probes.
 
-\- Columns representing biological samples.
+- Columns representing biological samples.
 
-\- Numerical values representing gene expression levels.
+- Numerical values representing gene expression levels.
 
 
 
@@ -148,7 +148,7 @@ The expression data were already normalized using the Robust Multi-array Average
 
 
 
-**### Ethical and Licensing Considerations**
+### Ethical and Licensing Considerations
 
 
 
@@ -160,11 +160,11 @@ The original study's ethical approval, consent arrangements, and GEO data-use co
 
 
 
-\---
+---
 
 
 
-**## 4. Methods**
+## 4. Methods
 
 
 
@@ -172,7 +172,7 @@ The analysis was performed using R and RStudio.
 
 
 
-**### 4.1 Software and Packages**
+### 4.1 Software and Packages
 
 
 
@@ -180,35 +180,35 @@ The following R packages were used:
 
 
 
-\| Package | Purpose |
+| Package | Purpose |
 
-\|---|---|
+|---|---|
 
-\| GEOquery | Download and access GEO datasets |
+| GEOquery | Download and access GEO datasets |
 
-\| limma | Differential gene expression analysis |
+| limma | Differential gene expression analysis |
 
-\| tidyverse | Data manipulation |
+| tidyverse | Data manipulation |
 
-\| ggplot2 | Data visualization |
+| ggplot2 | Data visualization |
 
-\| dplyr | Data filtering and manipulation |
+| dplyr | Data filtering and manipulation |
 
-\| clusterProfiler | GO enrichment and GSEA |
+| clusterProfiler | GO enrichment and GSEA |
 
-\| org.Hs.eg.db | Human gene annotation |
+| org.Hs.eg.db | Human gene annotation |
 
-\| AnnotationDbi | Gene identifier annotation |
+| AnnotationDbi | Gene identifier annotation |
 
-\| enrichplot | Enrichment visualization |
+| enrichplot | Enrichment visualization |
 
-\| gridExtra | Plot arrangement |
+| gridExtra | Plot arrangement |
 
-\| stringr | Text processing |
+| stringr | Text processing |
 
 
 
-**### 4.2 Dataset Download and Inspection**
+### 4.2 Dataset Download and Inspection
 
 
 
@@ -224,15 +224,15 @@ The following checks were performed:
 
 
 
-\- Dataset dimensions.
+- Dataset dimensions.
 
-\- Sample metadata inspection.
+- Sample metadata inspection.
 
-\- Missing-value detection.
+- Missing-value detection.
 
-\- Duplicate sample-name detection.
+- Duplicate sample-name detection.
 
-\- Expression value summary.
+- Expression value summary.
 
 
 
@@ -244,7 +244,7 @@ No missing values were found in the expression matrix or sample information. No 
 
 
 
-**### 4.3 Quality Control**
+### 4.3 Quality Control
 
 
 
@@ -256,21 +256,21 @@ The expression values had the following summary:
 
 
 
-\| Statistic | Expression value |
+| Statistic | Expression value |
 
-\|---|---:|
+|---|---:|
 
-\| Minimum | 1.410 |
+| Minimum | 1.410 |
 
-\| First quartile | 5.250 |
+| First quartile | 5.250 |
 
-\| Median | 6.630 |
+| Median | 6.630 |
 
-\| Mean | 6.591 |
+| Mean | 6.591 |
 
-\| Third quartile | 7.900 |
+| Third quartile | 7.900 |
 
-\| Maximum | 14.070 |
+| Maximum | 14.070 |
 
 
 
@@ -278,7 +278,7 @@ The boxplot was used to visually examine differences in expression distributions
 
 
 
-**\*\*Figure 1: Expression distribution across samples\*\***
+****Figure 1: Expression distribution across samples****
 
 
 
@@ -286,7 +286,7 @@ The boxplot was used to visually examine differences in expression distributions
 
 
 
-**### 4.4 Principal Component Analysis (PCA)**
+### 4.4 Principal Component Analysis (PCA)
 
 
 
@@ -298,7 +298,7 @@ The expression matrix was transposed so that rows represented samples and column
 
 
 
-The \`prcomp()\` function was used to perform PCA.
+The `prcomp()` function was used to perform PCA.
 
 
 
@@ -306,9 +306,9 @@ The first two principal components explained:
 
 
 
-\- PC1: 19.43% of the variance.
+- PC1: 19.43% of the variance.
 
-\- PC2: 12.94% of the variance.
+- PC2: 12.94% of the variance.
 
 
 
@@ -316,7 +316,7 @@ Together, PC1 and PC2 explained 32.37% of the total variation.
 
 
 
-**\*\*Figure 2: PCA of pancreatic islet gene expression\*\***
+****Figure 2: PCA of pancreatic islet gene expression****
 
 
 
@@ -324,7 +324,7 @@ Together, PC1 and PC2 explained 32.37% of the total variation.
 
 
 
-**### 4.5 Differential Gene Expression Analysis**
+### 4.5 Differential Gene Expression Analysis
 
 
 
@@ -336,9 +336,9 @@ The samples were divided into two groups:
 
 
 
-\- Control: 54 non-diabetic samples.
+- Control: 54 non-diabetic samples.
 
-\- T2D: 9 Type 2 Diabetes samples.
+- T2D: 9 Type 2 Diabetes samples.
 
 
 
@@ -346,11 +346,11 @@ A design matrix was created, followed by the contrast:
 
 
 
-\`T2D - Control\`
+`T2D - Control`
 
 
 
-The \`lmFit()\`, \`contrasts.fit()\`, and \`eBayes()\` functions were used to perform the analysis.
+The `lmFit()`, `contrasts.fit()`, and `eBayes()` functions were used to perform the analysis.
 
 
 
@@ -362,7 +362,7 @@ A probe was considered statistically significant when:
 
 
 
-\`Adjusted p-value < 0.05\`
+`Adjusted p-value < 0.05`
 
 
 
@@ -371,7 +371,7 @@ The differential expression results were saved in:
 
 
 
-**### 4.6 Probe Annotation**
+### 4.6 Probe Annotation
 
 
 
@@ -391,15 +391,15 @@ The annotated results were saved in:
 
 
 
-\`results/tables/annotated_gene_results.csv\`
+`results/tables/annotated_gene_results.csv`
 
 
 
-**### 4.7 Gene Ontology Enrichment Analysis Using GSEA**
+### 4.7 Gene Ontology Enrichment Analysis Using GSEA
 
 
 
-Gene Set Enrichment Analysis was performed using the \`gseGO()\` function from clusterProfiler.
+Gene Set Enrichment Analysis was performed using the `gseGO()` function from clusterProfiler.
 
 
 
@@ -411,21 +411,21 @@ The analysis used:
 
 
 
-\- Organism database: \`org.Hs.eg.db\`
+- Organism database: `org.Hs.eg.db`
 
-\- Identifier type: \`ENTREZID\`
+- Identifier type: `ENTREZID`
 
-\- Ontology: Biological Process (BP)
+- Ontology: Biological Process (BP)
 
-\- Minimum gene set size: 10
+- Minimum gene set size: 10
 
-\- Maximum gene set size: 500
+- Maximum gene set size: 500
 
-\- Multiple-testing correction: Benjamini-Hochberg
+- Multiple-testing correction: Benjamini-Hochberg
 
-\- Significance threshold: adjusted p-value < 0.05
+- Significance threshold: adjusted p-value < 0.05
 
-\- Numerical precision setting: \`eps = 0\`
+- Numerical precision setting: `eps = 0`
 
 
 
@@ -433,7 +433,7 @@ The results were saved in:
 
 
 
-\`results/tables/GO_GSEA_final_results.csv\`
+`results/tables/GO_GSEA_final_results.csv`
 
 
 
@@ -441,15 +441,15 @@ The top enriched pathways were visualized using a GSEA dot plot.
 
 
 
-\---
+---
 
 
 
-**## 5. Results**
+## 5. Results
 
 
 
-**### 5.1 Dataset Quality Assessment**
+### 5.1 Dataset Quality Assessment
 
 
 
@@ -461,11 +461,11 @@ The quality checks identified:
 
 
 
-\- Missing expression values: 0
+- Missing expression values: 0
 
-\- Missing sample metadata values: 0
+- Missing sample metadata values: 0
 
-\- Duplicate sample names: 0
+- Duplicate sample names: 0
 
 
 
@@ -477,7 +477,7 @@ The boxplot provided a visual summary of expression distributions across samples
 
 
 
-**### 5.2 PCA Results**
+### 5.2 PCA Results
 
 
 
@@ -485,15 +485,15 @@ The PCA analysis showed:
 
 
 
-\| Component | Variance explained |
+| Component | Variance explained |
 
-\|---|---:|
+|---|---:|
 
-\| PC1 | 19.43% |
+| PC1 | 19.43% |
 
-\| PC2 | 12.94% |
+| PC2 | 12.94% |
 
-\| Combined | 32.37% |
+| Combined | 32.37% |
 
 
 
@@ -501,7 +501,7 @@ The PCA plot provides an overview of variation among the samples. Any separation
 
 
 
-**### 5.3 Differential Expression Results**
+### 5.3 Differential Expression Results
 
 
 
@@ -509,21 +509,21 @@ The limma analysis identified one probe with an adjusted p-value below 0.05.
 
 
 
-\| Attribute | Result |
+| Attribute | Result |
 
-\|---|---:|
+|---|---:|
 
-\| Probe ID | 8072314 |
+| Probe ID | 8072314 |
 
-\| logFC | +0.3385185 |
+| logFC | +0.3385185 |
 
-\| Average expression | 5.592063 |
+| Average expression | 5.592063 |
 
-\| Moderated t-statistic | 5.186328 |
+| Moderated t-statistic | 5.186328 |
 
-\| P-value | 2.262989 × 10⁻⁶ |
+| P-value | 2.262989 × 10⁻⁶ |
 
-\| Adjusted p-value | 0.04256230 |
+| Adjusted p-value | 0.04256230 |
 
 
 
@@ -535,11 +535,11 @@ The fold change is approximately 1.26, indicating a modest expression difference
 
 
 
-**### 5.4 Probe Annotation Results**
+### 5.4 Probe Annotation Results
 
 
 
-The significant probe, 8072314, was associated with the annotation for **\*\*LIF-AS2 (LIF antisense RNA 2)\*\***.
+The significant probe, 8072314, was associated with the annotation for ****LIF-AS2 (LIF antisense RNA 2)****.
 
 
 
@@ -547,11 +547,11 @@ The annotation identifies it as an antisense RNA rather than a protein-coding ge
 
 
 
-No GO annotations were returned for this identifier in the queried \`org.Hs.eg.db\` resource. This means no corresponding GO annotations were found through that particular mapping; it does not establish that the RNA has no biological function.
+No GO annotations were returned for this identifier in the queried `org.Hs.eg.db` resource. This means no corresponding GO annotations were found through that particular mapping; it does not establish that the RNA has no biological function.
 
 
 
-**### 5.5 GSEA Results**
+### 5.5 GSEA Results
 
 
 
@@ -559,15 +559,15 @@ The final GSEA analysis identified:
 
 
 
-\| Measurement | Result |
+| Measurement | Result |
 
-\|---|---:|
+|---|---:|
 
-\| Total GO Biological Process pathways | 5,688 |
+| Total GO Biological Process pathways | 5,688 |
 
-\| Significant pathways | 1,245 |
+| Significant pathways | 1,245 |
 
-\| Significance threshold | Adjusted p-value < 0.05 |
+| Significance threshold | Adjusted p-value < 0.05 |
 
 
 
@@ -575,35 +575,35 @@ The top enriched pathways included:
 
 
 
-\| Biological process | NES | Adjusted p-value |
+| Biological process | NES | Adjusted p-value |
 
-\|---|---:|---:|
+|---|---:|---:|
 
-\| Ribosome biogenesis | +2.740777 | 4.058370 × 10⁻²³ |
+| Ribosome biogenesis | +2.740777 | 4.058370 × 10⁻²³ |
 
-\| Ribonucleoprotein complex biogenesis | +2.456587 | 5.004074 × 10⁻²² |
+| Ribonucleoprotein complex biogenesis | +2.456587 | 5.004074 × 10⁻²² |
 
-\| Cytokine-mediated signaling pathway | +2.329272 | 1.896924 × 10⁻¹⁸ |
+| Cytokine-mediated signaling pathway | +2.329272 | 1.896924 × 10⁻¹⁸ |
 
-\| rRNA metabolic process | +2.521812 | 2.110423 × 10⁻¹⁷ |
+| rRNA metabolic process | +2.521812 | 2.110423 × 10⁻¹⁷ |
 
-\| rRNA processing | +2.671105 | 2.515669 × 10⁻¹⁷ |
+| rRNA processing | +2.671105 | 2.515669 × 10⁻¹⁷ |
 
-\| Leukocyte migration | +2.369509 | 5.503574 × 10⁻¹⁵ |
+| Leukocyte migration | +2.369509 | 5.503574 × 10⁻¹⁵ |
 
-\| Ribosomal small subunit biogenesis | +2.864217 | 1.877398 × 10⁻¹³ |
+| Ribosomal small subunit biogenesis | +2.864217 | 1.877398 × 10⁻¹³ |
 
-\| Maturation of SSU-rRNA | +2.969289 | 1.301512 × 10⁻¹² |
+| Maturation of SSU-rRNA | +2.969289 | 1.301512 × 10⁻¹² |
 
-\| Cell chemotaxis | +2.280963 | 3.312729 × 10⁻¹² |
+| Cell chemotaxis | +2.280963 | 3.312729 × 10⁻¹² |
 
-\| Humoral immune response | +2.330788 | 4.647546 × 10⁻¹² |
+| Humoral immune response | +2.330788 | 4.647546 × 10⁻¹² |
 
-\| Respiratory electron transport chain | -2.560463 | 1.722223 × 10⁻¹⁰ |
+| Respiratory electron transport chain | -2.560463 | 1.722223 × 10⁻¹⁰ |
 
 
 
-Positive NES values indicate enrichment towards the positive end of the ranked list, corresponding to higher T2D expression in the \`T2D - Control\` comparison.
+Positive NES values indicate enrichment towards the positive end of the ranked list, corresponding to higher T2D expression in the `T2D - Control` comparison.
 
 
 
@@ -615,7 +615,7 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 
 
-**\*\*Figure 3: Final GO Biological Process GSEA dot plot\*\***
+****Figure 3: Final GO Biological Process GSEA dot plot****
 
 
 
@@ -623,7 +623,7 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 
 
-**\*\*Figure 4: Oxidative phosphorylation GSEA enrichment plot\*\***
+****Figure 4: Oxidative phosphorylation GSEA enrichment plot****
 
 
 
@@ -631,11 +631,11 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 
 
-\---
+---
 
 
 
-**## 6. Discussion**
+## 6. Discussion
 
 
 
@@ -667,11 +667,11 @@ However, pathway enrichment does not independently establish the underlying biol
 
 
 
-\---
+---
 
 
 
-**## 7. Limitations**
+## 7. Limitations
 
 
 
@@ -679,27 +679,27 @@ Several limitations should be considered:
 
 
 
-1\. **\*\*Imbalanced sample groups:\*\*** The dataset contains 54 non-diabetic samples but only 9 T2D samples.
+1. ****Imbalanced sample groups:**** The dataset contains 54 non-diabetic samples but only 9 T2D samples.
 
-2\. **\*\*Small T2D group:\*\*** The relatively small number of diabetic samples may reduce statistical power and affect the stability of estimates.
+2. ****Small T2D group:**** The relatively small number of diabetic samples may reduce statistical power and affect the stability of estimates.
 
-3\. **\*\*Probe-level analysis:\*\*** The expression analysis initially identifies probes, which do not always correspond directly to unique protein-coding genes.
+3. ****Probe-level analysis:**** The expression analysis initially identifies probes, which do not always correspond directly to unique protein-coding genes.
 
-4\. **\*\*Annotation limitations:\*\*** Some probe annotations and Entrez identifier mappings may be incomplete or ambiguous.
+4. ****Annotation limitations:**** Some probe annotations and Entrez identifier mappings may be incomplete or ambiguous.
 
-5\. **\*\*Exploratory enrichment:\*\*** GSEA findings depend on gene identifier mapping and the quality of pathway annotations.
+5. ****Exploratory enrichment:**** GSEA findings depend on gene identifier mapping and the quality of pathway annotations.
 
-6\. **\*\*No independent validation:\*\*** The findings were not validated using an independent dataset or experimental methods.
+6. ****No independent validation:**** The findings were not validated using an independent dataset or experimental methods.
 
-7\. **\*\*Potential confounding:\*\*** Other donor characteristics and clinical variables may influence gene expression and should be considered in future analyses.
-
-
-
-\---
+7. ****Potential confounding:**** Other donor characteristics and clinical variables may influence gene expression and should be considered in future analyses.
 
 
 
-**## 8. Conclusion**
+---
+
+
+
+## 8. Conclusion
 
 
 
@@ -719,11 +719,11 @@ Overall, the results provide an exploratory overview of gene-expression differen
 
 
 
-\---
+---
 
 
 
-**## 9. Project Folder Structure**
+## 9. Project Folder Structure
 
 
 
@@ -731,7 +731,7 @@ The project files are organized as follows:
 
 
 
-\`\`\`text
+```text
 
 2021-ASP-43_Banuyah/
 
@@ -775,6 +775,15 @@ The project files are organized as follows:
 
 │
 
+├── results/
+│
+├── docs/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   ├── data.js
+│   └── assets/
+│
 ├── results/
 
 │   ├── figures/
@@ -823,19 +832,19 @@ The project files are organized as follows:
 
 └── README.md
 
-\`\`\`
+```
 
 
 
-\---
+---
 
 
 
-**## 10. Reproducibility and How to Run the Analysis**
+## 10. Reproducibility and How to Run the Analysis
 
 
 
-Run the scripts from the repository root directory in RStudio so that the relative paths (\`data/\`, \`results/\`) resolve correctly. Install the required CRAN and Bioconductor packages before running the workflow. The analysis scripts are kept in the \`code/\` directory, while input data and generated outputs remain at the repository root.
+Run the scripts from the repository root directory in RStudio so that the relative paths (`data/`, `results/`) resolve correctly. Install the required CRAN and Bioconductor packages before running the workflow. The analysis scripts are kept in the `code/` directory, while input data and generated outputs remain at the repository root.
 
 
 
@@ -843,21 +852,21 @@ Recommended execution order (run in the same R session where later scripts depen
 
 
 
-1\. \`code/02_data_inspection.R\` – inspect the expression matrix and generate the expression distribution plot.
+1. `code/02_data_inspection.R` – inspect the expression matrix and generate the expression distribution plot.
 
-2\. \`code/03_sample_grouping_PCA.R\` – define sample groups, save processed metadata, and generate PCA results.
+2. `code/03_sample_grouping_PCA.R` – define sample groups, save processed metadata, and generate PCA results.
 
-3\. \`code/04_differential_gene_expression.R\` – run limma and save differential-expression results.
+3. `code/04_differential_gene_expression.R` – run limma and save differential-expression results.
 
-4\. \`code/05_significant_gene_summary.R\` – summarize significant probes.
+4. `code/05_significant_gene_summary.R` – summarize significant probes.
 
-5\. \`code/06_gene_annotation.R\`, followed by \`code/07_probe_annotation.R\` – retrieve and apply platform annotation.
+5. `code/06_gene_annotation.R`, followed by `code/07_probe_annotation.R` – retrieve and apply platform annotation.
 
-6\. \`code/EXTRACT_GENE_IDS.R\`, then \`code/ranked_genes_for_GSEA.R\` – extract and rank mapped Entrez identifiers.
+6. `code/EXTRACT_GENE_IDS.R`, then `code/ranked_genes_for_GSEA.R` – extract and rank mapped Entrez identifiers.
 
-7\. \`code/GSEA_DOT_PLOT.R\` – run the final GO GSEA and create the final enrichment outputs.
+7. `code/GSEA_DOT_PLOT.R` – run the final GO GSEA and create the final enrichment outputs.
 
-8\. \`code/final_outcome.R\` – create the final pathway table and dot plot after the GSEA objects have been created.
+8. `code/final_outcome.R` – create the final pathway table and dot plot after the GSEA objects have been created.
 
 
 
@@ -869,46 +878,46 @@ The repository includes precomputed result files so that readers can inspect the
 
 
 
-\---
+---
 
 
 
-**## 11. References**
+## 11. References
 
 
 
-1\. Edgar, R., Domrachev, M., and Lash, A. E. (2002). Gene Expression Omnibus: NCBI gene expression and hybridization array data repository. *\*Nucleic Acids Research\**, 30(1), 207–210. https\://doi.org/10.1093/nar/30.1.207
+1. Edgar, R., Domrachev, M., and Lash, A. E. (2002). Gene Expression Omnibus: NCBI gene expression and hybridization array data repository. **Nucleic Acids Research**, 30(1), 207–210. https\://doi.org/10.1093/nar/30.1.207
 
 
 
-2\. Ritchie, M. E., et al. (2015). limma powers differential expression analyses for RNA-sequencing and microarray studies. *\*Nucleic Acids Research\**, 43(7), e47. https\://doi.org/10.1093/nar/gkv007
+2. Ritchie, M. E., et al. (2015). limma powers differential expression analyses for RNA-sequencing and microarray studies. **Nucleic Acids Research**, 43(7), e47. https\://doi.org/10.1093/nar/gkv007
 
 
 
-3\. Subramanian, A., et al. (2005). Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles. *\*Proceedings of the National Academy of Sciences\**, 102(43), 15545–15550. https\://doi.org/10.1073/pnas.0506580102
+3. Subramanian, A., et al. (2005). Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles. **Proceedings of the National Academy of Sciences**, 102(43), 15545–15550. https\://doi.org/10.1073/pnas.0506580102
 
 
 
-4\. Wu, T., et al. (2021). clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. *\*The Innovation\**, 2(3), 100141. https\://doi.org/10.1016/j.xinn.2021.100141
+4. Wu, T., et al. (2021). clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. **The Innovation**, 2(3), 100141. https\://doi.org/10.1016/j.xinn.2021.100141
 
 
 
-5\. NCBI Gene Expression Omnibus. GSE38642 dataset. https\://www\.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642
+5. NCBI Gene Expression Omnibus. GSE38642 dataset. https\://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE38642
 
 
 
-6\. NCBI Gene Expression Omnibus. GPL6244 platform. https\://www\.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6244
+6. NCBI Gene Expression Omnibus. GPL6244 platform. https\://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6244
 
 
 
-\---
+---
 
 
 
-**\*\*Note:\*\*** All reported numerical results are based on the analysis outputs obtained in this project. The interpretation of pathway enrichment is exploratory and should be supported by careful review of gene identifier mapping and the original dataset metadata.
+****Note:**** All reported numerical results are based on the analysis outputs obtained in this project. The interpretation of pathway enrichment is exploratory and should be supported by careful review of gene identifier mapping and the original dataset metadata.
 
-**## Project Website**
+## Project Website
 
 
 
-A static website presenting the project overview, workflow, results, visualizations, and downloadable tables is available in the \`docs/\` folder. To publish it, follow [\`docs/PUBLISH.md\`](docs/PUBLISH.md) and select **\*\*main /docs\*\*** in GitHub Pages settings.
+A static website presenting the project overview, workflow, results, visualizations, and downloadable tables is available in the `docs/` folder. To publish it, follow [`docs/PUBLISH.md`](docs/PUBLISH.md) and select ****main /docs**** in GitHub Pages settings.
