@@ -140,7 +140,7 @@ The boxplot was used to visually examine differences in expression distributions
 
 **Figure 1: Expression distribution across samples**
 
-File: `results/figures/expression_boxplot.png`
+![Figure 1: Expression distribution across samples](results/figures/expression_boxplot.png)
 
 ### 4.4 Principal Component Analysis (PCA)
 
@@ -159,7 +159,7 @@ Together, PC1 and PC2 explained 32.37% of the total variation.
 
 **Figure 2: PCA of pancreatic islet gene expression**
 
-File: `results/figures/PCA_plot.png`
+![Figure 2: PCA of pancreatic islet gene expression](results/figures/PCA_plot.png)
 
 ### 4.5 Differential Gene Expression Analysis
 
@@ -184,7 +184,7 @@ A probe was considered statistically significant when:
 
 The differential expression results were saved in:
 
-`results/tables/differential_expression_results.csv`
+![Figure 2: PCA of pancreatic islet gene expression](results/figures/
 
 ### 4.6 Probe Annotation
 
@@ -220,10 +220,6 @@ The results were saved in:
 `results/tables/GO_GSEA_final_results.csv`
 
 The top enriched pathways were visualized using a GSEA dot plot.
-
-**Figure: GO Biological Process GSEA dot plot**
-
-![GO Biological Process GSEA dot plot](results/figures/GO_GSEA_final_dotplot.png)
 
 ---
 
@@ -318,7 +314,7 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 **Figure 4: Oxidative phosphorylation GSEA enrichment plot**
 
-![Figure 4: Oxidative phosphorylation GSEA enrichment plot](results/figures/oxidative_phosphorylation_GSEA.png)
+![Figure 3: Final GO Biological Process GSEA dot plot](results/figures/GO_GSEA_final_dotplot.png)
 
 ---
 
