@@ -8,5 +8,5 @@
 6. Wait for the Pages deployment to finish. The published address will be:
    https://banuyah.github.io/2021-ASP-43_Banuyah/
 
-The website is a static project showcase. It displays existing figures and downloadable CSV results.
+The website embeds the actual saved result PNG figures directly in the Results section. The website is a static project showcase. It displays existing figures and downloadable CSV results.
 It does not run R scripts in the browser. Run the analysis locally in R/RStudio.
