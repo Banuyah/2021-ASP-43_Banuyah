@@ -221,6 +221,10 @@ The results were saved in:
 
 The top enriched pathways were visualized using a GSEA dot plot.
 
+**Figure: GO Biological Process GSEA dot plot**
+
+![GO Biological Process GSEA dot plot](results/figures/GO_GSEA_final_dotplot.png)
+
 ---
 
 ## 5. Results
