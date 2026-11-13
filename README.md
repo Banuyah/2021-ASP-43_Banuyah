@@ -314,7 +314,7 @@ These enrichment results describe coordinated patterns across ranked genes and s
 
 **Figure 4: Oxidative phosphorylation GSEA enrichment plot**
 
-File: `results/figures/oxidative_phosphorylation_GSEA.png`
+![Figure 4: Oxidative phosphorylation GSEA enrichment plot](results/figures/oxidative_phosphorylation_GSEA.png)
 
 ---
 
