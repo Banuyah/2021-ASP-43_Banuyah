@@ -5,7 +5,11 @@
 # ==================================================
 
 library(tidyverse)
+library(Biobase)
 library(ggplot2)
+
+dir.create("results/figures", recursive = TRUE, showWarnings = FALSE)
+dir.create("results/tables", recursive = TRUE, showWarnings = FALSE)
 
 # 1. Load saved dataset
 eset <- readRDS("data/GSE38642_expression_set.rds")

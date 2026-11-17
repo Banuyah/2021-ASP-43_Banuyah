@@ -5,7 +5,11 @@
 # ============================================
 
 library(GEOquery)
+library(Biobase)
 library(tidyverse)
+
+dir.create("results/figures", recursive = TRUE, showWarnings = FALSE)
+dir.create("results/tables", recursive = TRUE, showWarnings = FALSE)
 
 # Load downloaded dataset
 eset <- readRDS("data/GSE38642_expression_set.rds")
