@@ -123,16 +123,11 @@ results <- results %>%
 
 # 11. CLASSIFY SIGNIFICANT PROBES
 
-results$Regulation <- ifelse(
-  results$adj.P.Val < 0.05 &
-    results$logFC > 1,
-  "Upregulated",
-  ifelse(
-    results$adj.P.Val < 0.05 &
-      results$logFC < -1,
-    "Downregulated",
-    "Not Significant"
-  )
+# Classify significant probes
+results$Regulation <- dplyr::case_when(
+  results$adj.P.Val < 0.05 & results$logFC > 0 ~ "Upregulated",
+  results$adj.P.Val < 0.05 & results$logFC < 0 ~ "Downregulated",
+  TRUE ~ "Not Significant"
 )
 
 # 12. COUNT RESULTS
