@@ -74,6 +74,20 @@ A positive normalized enrichment score (NES) indicates enrichment toward the pos
 
 The analysed matrix contains 18,808 probes across 63 samples. The committed quality-control summary reports zero missing expression values and zero duplicate sample names. The PCA results report 19.43% variance explained by PC1 and 12.94% by PC2. Together, the first two components explain 32.37% of the observed variation. The PCA plot and sample-level coordinates are saved in `results/figures/PCA_plot.png` and `results/tables/PCA_results.csv`.
 
+**PCA visualisation**
+
+![PCA plot of pancreatic-islet samples](results/figures/PCA_plot.png)
+
+**Expression-distribution quality control**
+
+![Expression boxplot across samples](results/figures/expression_boxplot.png)
+
+[Download PCA coordinates (CSV)](results/tables/PCA_results.csv)
+
+**Expression heatmap**
+
+![Gene-expression heatmap](results/figures/gene_expression_heatmap.png)
+
 ### 4.2 Differential expression
 
 The committed limma results contain one probe with an adjusted p-value below 0.05. The significant result is:
@@ -84,13 +98,31 @@ The committed limma results contain one probe with an adjusted p-value below 0.0
 
 The positive log2 fold change corresponds to an estimated fold-change ratio of approximately 1.26 on the original expression scale. This is a modest difference. The probe is statistically significant at the selected adjusted-p-value threshold, but its effect size should not be overstated. The corrected classification is **Upregulated**, not “Not Significant”. The corrected summary contains 18,808 total probes, one significant/upregulated probe, zero significant/downregulated probes, and 18,807 probes not passing the adjusted-p-value threshold.
 
+**Volcano plot**
+
+![Differential-expression volcano plot](results/figures/improved_volcano_plot.png)
+
+[Download complete differential-expression results (CSV)](results/tables/differential_expression_results.csv) · [Download significance summary (CSV)](results/tables/significance_summary.csv) · [Download significant probes (CSV)](results/tables/significant_genes.csv)
+
 ### 4.3 Probe annotation
 
 The platform annotation links probe 8072314 to LIF-AS2 (LIF antisense RNA 2; NCBI Gene ID 91370; Ensembl ID ENSG00000268812). LIF-AS2 is a non-coding RNA, so this result should not be presented as a protein-coding biomarker. The annotation is consistent with the platform's transcript and genomic fields. The annotation and identifier mapping should still be considered platform-dependent and checked again if a different genome build or annotation release is used.
 
+[Download annotated probe results (CSV)](results/tables/annotated_gene_results.csv)
+
 ### 4.4 GO Biological Process GSEA
 
 The committed GSEA output contains 5,688 GO Biological Process terms, with 1,245 terms having adjusted p-values below 0.05. Among the strongest positive NES results are ribosome biogenesis (NES 2.741), maturation of SSU-rRNA (NES 2.969), ribosomal small subunit biogenesis (NES 2.864), and cytokine-mediated signalling (NES 2.329). Negative NES results include oxidative phosphorylation (NES -2.481) and respiratory electron transport chain (NES -2.560). The complete output is saved in `results/tables/GO_GSEA_final_results.csv`, and the significant subset is saved in `results/tables/significant_GO_pathways.csv`.
+
+**GO Biological Process enrichment visualisation**
+
+![GO GSEA dot plot](results/figures/GO_GSEA_final_dotplot.png)
+
+**Oxidative phosphorylation enrichment**
+
+![Oxidative phosphorylation GSEA plot](results/figures/oxidative_phosphorylation_GSEA.png)
+
+[Download all GO GSEA results (CSV)](results/tables/GO_GSEA_final_results.csv) · [Download significant GO pathways (CSV)](results/tables/significant_GO_pathways.csv) · [Download top 15 GO pathways (CSV)](results/tables/Top_15_GO_pathways.csv)
 
 These results suggest that ranked expression patterns in this dataset are associated with RNA/ribosome-related, immune-related, and mitochondrial energy-metabolism gene sets. GO terms overlap in their member genes and are not independent findings. A large number of significant terms should therefore be interpreted cautiously, especially given the small T2D group and the dependence of GSEA on gene-ID mapping and the ranked-gene universe.
 
